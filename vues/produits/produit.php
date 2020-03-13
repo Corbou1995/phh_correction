@@ -22,28 +22,39 @@
         font-size:22pt;
     }
 </style>
+
+<?php 
+    if(isset($_GET['idp'])){
+    $unProduit=$db->getProduit($_GET["idp"]);
+   ?>
+
 <div class="produit">
-    <h2>Edition d'un produit > id : 0</h2>
+    <h2>Edition d'un produit > id : <?= $unProduit["idp"] ?></h2>
     <div class="button-container">
         <hr/>
     </div>
     <div class="content inline-block">
         <h3>Titre :</h3>
         <br/>
-        <h2>titre 0</h2>
+        <h2><?= $unProduit["titre"] ?></h2>
         <br/>
         <h3>Description :</h3>
         <br/>
-        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem architecto cumque ullam accusamus. Odit culpa, dolorem modi vitae nemo ut est obcaecati! Omnis placeat necessitatibus nesciunt ipsa incidunt nisi nam?</h2>
+        <h2><?= $unProduit["description"] ?></h2>
         <br/>
         <h3>Prix</h3>
         <br/>
-        <h2>0.01&euro;</h2>
+        <h2><?= $unProduit["prix"] ?>&euro;</h2>
     </div>
     <div class="image inline-block">
-        <img src="img/produits/0.png" alt="">
+        <img src="core/image.php<?idp= $result['idp'] ?>" alt="">
         <br/>
         <button class="btn">Ajouter</button>
     </div>
     
 </div>
+<?php
+ }
+ else include('vues\404.php');
+ 
+?>

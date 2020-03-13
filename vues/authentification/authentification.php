@@ -1,3 +1,15 @@
+<?php 
+
+if(isset($_POST["login"]))
+{
+    $valid=$db->authent($_POST["login"],$_POST["password"]);
+    if ($valid){
+        $_SESSION['uid']=$_POST["login"];
+    }
+}
+?>
+
+
 <style>
         .authentification{
             margin-top:50px;
@@ -34,11 +46,11 @@
         <table>
             <tr>
                 <td><label for="login">login</label></td>
-                <td><input type="text" name="login"></td>
+                <td><input type="text" name="login" value="azerty"></td>
             </tr>
             <tr>
                 <td><label for="password">password</label></td>
-                <td><input type="password" name="password"></td>
+                <td><input type="password" name="password" value="abcd"></td>
             </tr>
         </table>
         <div class="align-right">

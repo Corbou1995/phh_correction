@@ -1,3 +1,13 @@
+
+<?php
+
+    session_start(); 
+    $_DEBUG=true;
+    include_once('core/core.php');
+   
+    var_dump($_SESSION)
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
